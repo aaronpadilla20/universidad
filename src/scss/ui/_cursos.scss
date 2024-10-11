@@ -1,0 +1,52 @@
+@use '../custom' as bootstrap;
+
+.nav{
+    .active{
+        color: bootstrap.$dark;
+    }
+}
+
+.categoria-curso{
+    border: 1px solid bootstrap.$grisOscuro;
+    /* padding: bootstrap.$spacer * 5; -> Propio Padding basado en space de bootstrap */
+}
+
+.listado-cursos{
+    @include bootstrap.make-row;
+
+    .curso{
+        @include bootstrap.make-col-ready;
+        @include bootstrap.media-breakpoint-up(sm){
+            @include bootstrap.make-col(1,2);
+        }
+        @include bootstrap.media-breakpoint-up(md){
+            @include bootstrap.make-col(1,3);
+        }
+        @include bootstrap.media-breakpoint-up(lg){
+            @include bootstrap.make-col(1,5);
+        }
+
+        .titulo{
+            font-family: bootstrap.$fuente-textos;
+            font-size: 1rem;
+        }
+
+        .instructor,
+        .total{
+            font-size: .8rem;
+            margin: 0;
+        }
+
+        .puntaje{
+            width: 6rem;
+        }
+
+        .precio{
+            font-size: .9rem;
+            span{
+                font-size: .7rem;
+                text-decoration: line-through;
+            }
+        }
+    }
+}
